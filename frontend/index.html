@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shared Calendar</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Shared Calendar</h1>
+            <div id="auth-section" class="auth-section">
+                <button id="login-btn">Login</button>
+                <button id="register-btn">Register</button>
+            </div>
+            <div id="user-section" class="user-section" style="display: none;">
+                <span id="user-name"></span>
+                <button id="logout-btn">Logout</button>
+            </div>
+        </header>
+
+        <main>
+            <div id="login-form" class="form-container" style="display: none;">
+                <h2>Login</h2>
+                <input type="email" id="login-email" placeholder="Email">
+                <input type="password" id="login-password" placeholder="Password">
+                <button id="login-submit">Login</button>
+            </div>
+
+            <div id="register-form" class="form-container" style="display: none;">
+                <h2>Register</h2>
+                <input type="text" id="register-username" placeholder="Username">
+                <input type="email" id="register-email" placeholder="Email">
+                <input type="password" id="register-password" placeholder="Password">
+                <select id="register-role">
+                    <option value="viewer">Viewer</option>
+                    <option value="editor">Editor</option>
+                    <option value="admin">Admin</option>
+                </select>
+                <button id="register-submit">Register</button>
+            </div>
+
+            <div id="calendar-section" class="calendar-section" style="display: none;">
+                <div class="calendar-controls">
+                    <button id="prev-month">&lt; Prev</button>
+                    <h2 id="current-month"></h2>
+                    <button id="next-month">Next &gt;</button>
+                    <button id="today-btn">Today</button>
+                    <button id="add-event-btn">Add Event</button>
+                </div>
+
+                <div id="calendar"></div>
+
+                <div id="event-modal" class="modal" style="display: none;">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h3 id="modal-title">Add Event</h3>
+                        <input type="text" id="event-title" placeholder="Event Title">
+                        <textarea id="event-description" placeholder="Description"></textarea>
+                        <input type="datetime-local" id="event-start">
+                        <input type="datetime-local" id="event-end">
+                        <select id="event-category">
+                            <option value="general">General</option>
+                            <option value="work">Work</option>
+                            <option value="personal">Personal</option>
+                            <option value="meeting">Meeting</option>
+                        </select>
+                        <label><input type="checkbox" id="event-recurring"> Recurring Event</label>
+                        <div class="modal-buttons">
+                            <button id="save-event">Save</button>
+                            <button id="delete-event" style="display: none;">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
